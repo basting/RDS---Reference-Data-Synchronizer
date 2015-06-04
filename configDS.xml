@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rds>
+	<systems>
+		<system id='crm' db_name='' db_server='' login_name='' db_password=''/>
+		<system id='abp' url='jdbc:oracle:thin:@test:1521:TEST' user='' password=''/>
+	</systems>
+	<udpls>
+		<udpl title='X_TEST_UDP' refid='X_TEST_UDP' description='To Test RDS Tool'>
+			<level1 hardcoded='Y'>
+				<value title='Account' refid='A'/>
+				<value title='Invoice' refid='I'/>
+				<value title='Charge' refid='C'/>
+			</level1>
+			<level2 hardcoded='N'>
+				<fromtable>ar1_credit_reason</fromtable> 
+				<title_from>credit_reason_description</title_from> 
+				<refid_from>credit_reason_code</refid_from>
+				<parentkey>refid</parentkey>
+				<extsrc_key>activity_level_code</extsrc_key>
+				<condition>manual_ind='Y' and Category_code='C'</condition>
+			</level2>			
+		</udpl>		
+	</udpls>
+</rds>
